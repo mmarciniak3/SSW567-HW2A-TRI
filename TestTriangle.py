@@ -19,6 +19,7 @@ class TestTriangles(unittest.TestCase):
 
     def testNotTri(self):
         self.assertEqual(classifyTriangle(1, 1, 5), "NotATriangle")
+        self.assertEqual(classifyTriangle(1, 1, 0), "NotATriangle")
         self.assertNotEqual(classifyTriangle(1, 1, 1), "NotATriangle", "Should be Equallateral")
 
     def testRight(self):
@@ -26,17 +27,17 @@ class TestTriangles(unittest.TestCase):
         self.assertNotEqual(classifyTriangle(10, 1, 1), "Right", "Should be Not a Triangle")
 
     def testEqual(self):
-        self.assertEqual(classifyTriangle(1, 1, 1), "Equallateral")
-        self.assertNotEqual(classifyTriangle(3, 4, 5), "Equallateral", "Should be Right")
+        self.assertEqual(classifyTriangle(1, 1, 1), "Equilateral")
+        self.assertNotEqual(classifyTriangle(3, 4, 5), "Equilateral", "Should be Right")
 
     def testIso(self):
-        self.assertEqual(classifyTriangle(1, 3, 3), "Isosceles")
-        self.assertEqual(classifyTriangle(2, 2, 3), "Isosceles")
-        self.assertNotEqual(classifyTriangle(2, 9, 3), "Isosceles", "Should be Not a Triangle")
+        self.assertEqual(classifyTriangle(1, 3, 3), "Isoceles")
+        self.assertEqual(classifyTriangle(2, 2, 3), "Isoceles")
+        self.assertNotEqual(classifyTriangle(2, 9, 3), "Isoceles", "Should be Not a Triangle")
 
     def testScalene(self):
         self.assertEqual(classifyTriangle(3, 4, 6), "Scalene")
-        self.assertNotEqual(classifyTriangle(4, 4, 6), "Scalene", "Should be Isosceles")
+        self.assertNotEqual(classifyTriangle(4, 4, 6), "Scalene", "Should be Isoceles")
 
 if __name__ == '__main__':
     print('Running unit tests')
