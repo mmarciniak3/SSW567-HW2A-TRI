@@ -8,8 +8,7 @@ The primary goal of this file is to demonstrate a simple python program to class
 @author: 
 @author: 
 """
-
-def classifyTriangle(a,b,c):
+def classify_triangle(side_a,side_b,side_c):
     """
     Your correct code goes here...  Fix the faulty logic below until the code passes all of 
     you test cases. 
@@ -26,25 +25,22 @@ def classifyTriangle(a,b,c):
       
       BEWARE: there may be a bug or two in this code
     """
-
     # require that the input values be >= 0 and <= 200
-    instance_list = [isinstance(a, int), isinstance(b, int), isinstance(c, int)]
-    if (max(a, b, c) > 200 or min(a, b, c) < 0 or not instance_list):
+    instance_list = [isinstance(side_a, int), isinstance(side_b, int), isinstance(side_c, int)]
+    if (max(side_a, side_b, side_c) > 200 or min(side_a, side_b, side_c) < 0 or not instance_list):
         return 'InvalidInput'
-      
-    # This information was not in the requirements spec but 
+    # This information was not in the requirements spec but
     # is important for correctness
     # the sum of any two sides must be strictly less than the third side
     # of the specified shape is not a triangle
-    if (a >= (b + c)) or (b >= (a + c)) or (c >= (a + b)):
+    if(side_a >=(side_b + side_c)) or (side_b >=(side_a + side_c)) or (side_c >=(side_a + side_b)):
         return 'NotATriangle'
-        
-    # now we know that we have a valid triangle 
-    if a == b and b == c:
+    # now we know that we have a valid triangle
+    if side_a == side_b and side_b == side_c:
         return 'Equilateral'
-    elif ((a ** 2) + (b ** 2)) == (c ** 2):
+    elif ((side_a ** 2) + (side_b ** 2)) == (side_c ** 2):
         return 'Right'
-    elif (a != b) and  (b != c) and (a != b):
+    elif (side_a != side_b) and  (side_b != side_c) and (side_a != side_c):
         return 'Scalene'
     else:
         return 'Isoceles'
